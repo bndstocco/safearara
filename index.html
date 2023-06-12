@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de senha</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="icon" href="https://arararesultados.com.br/wp-content/uploads/2022/06/Favicon-22.png"
+        type="image/x-icon">
+    <link rel="shortcut icon" href="https://arararesultados.com.br/wp-content/uploads/2022/06/Favicon-22.png"
+        type="image/x-icon">
+</head>
+<header id="header">
+    <img src="./img/Arara_Arara-vertical-black.svg" id="" style="width: 350px" alt="Login">
+
+</header>
+
+<body>
+    <div class="row mx-auto">
+        <nav id="Log1" class="navbar navbar-expand-lg bg-body-dark">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#">
+                    <img src="./img/Arara_Arara-vertical-black.svg" id="img" style="height: 200px; max-width: 100%;"
+                        alt="Logo">
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <!-- SETOR: INTERNAS -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Internas</a>
+
+                        <!-- SETOR: INTERNAS2 -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Internas2</a>
+
+                        <!-- SETOR: RD STATION -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">RD Sta.</a>
+
+                        <!-- SETOR: E-MAILS COM DOMÍNIO -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">E-mails com
+                            Domínio</a>
+
+                        <!-- SETOR: LETALK -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Letalk</a>
+
+                        <!-- SETOR: CRM -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">CRM</a>
+
+                        <!-- SETOR: SITES -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Sites</a>
+
+                        <!-- SETOR: LINKTREE -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Linktree</a>
+
+                        <!-- SETOR: INSTAGRAM -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Instagram</a>
+
+                        <!-- SETOR: HOTMART -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Hotmart</a>
+
+                        <!-- SETOR: YOUTUBE -->
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Youtube</a>
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Linkedin</a>
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Google</a>
+                        <a class="nav-link" style="height: 20px" href="#" onclick="setSelectedNav(this)">Facebook</a>
+                    </div>
+                </div>
+        </nav>
+
+        <div id="app">
+            <div id="Carregando">
+                <img src="img/carregando.gif" alt="Imagem de carregamento">
+            </div>
+
+            <div class="caixa mb-5 col-sm-12 col-md-4">
+                <div id="auth">
+                    <form id="FrmAutentica">
+                        <h3 id="FrmAutenticaTitulo">Controle de Acesso</h3>
+
+                        <div class="Login">
+                            <input type="email" placeholder="Digite seu E-mail" id="email" class="camposDigitar">
+
+                            <br><br>
+
+                            <input type="password" placeholder="Digite sua Senha" id="senha" class="camposDigitar">
+
+                        </div>
+
+                        <br><br>
+
+                        <button type="submit" class="botaoAcessar" id="FrmAutenticaSubmit">Acessar</button>
+                    </form>
+
+                    <p id="Registrar">
+                        Não possui cadastro?
+                        <button class="botaoCadastrar" onclick="RealizarCadastro()">Cadastrar uma conta</button>
+                    </p>
+
+                    <p id="Acessar" class="IniOculta">
+                        Já possui um cadastro?
+                        <button class="botaoCadastrar" onclick="RealizarAcesso()">Acessar</button>
+                    </p>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pb-10" style="padding-bottom: 50px">
+        <div id="Log" class="mx-auto  text-center col-11">
+            <div class="row d-flex justify-content-center mx-auto" style="width: 100%">
+                <div class="col-12 mx-auto">
+                    <img id="ImgUsuario" src="https://arararesultados.com.br/wp-content/uploads/2022/06/Favicon-22.png">
+
+                    <h5 id="UsuarioLogadoTitulo">Usuário autenticado:</h5>
+
+                    <p id="VerificaEmail"></p>
+
+                    <div id="EnviaVerificaEmail"></div>
+                    <div id="deleteSingout">
+
+
+                        <button style="width: 13%" type="button" class="btn btn-danger" onclick="signOut()"> Sair
+                        </button>
+                    </div>
+
+
+                    <br>
+
+
+                    <div class="center">
+                        <label for="filtro">Filtro de cliente:</label>
+                        <input type="text" placeholder="Buscar nome do cliente" id="filtro">
+                        <br>
+                        <label for="filtro2">Filtro de plataforma:</label>
+                        <input type="text" placeholder="Buscar nome da plataforma" id="filtro2">
+                    </div>
+
+
+                    <div id="popup" class="popup">
+                        <div class="popup-content col-sm-12 col-md-4">
+                            <div class="d-flex justify-content-end">
+                                <button style="/* Reset any existing styles */
+                                background: none;
+                                border: none;
+                                color: inherit;
+                                font: inherit;
+                                padding: 0;
+                                cursor: pointer;" onclick="cancelaUpdate()"><span class="close">&times;</span></button>
+
+                            </div>
+                            <form id="FrmSenhas">
+                                <div id="dividerFrm">
+                                    <h3 class="FormText" id="TituloFormMeio">Formulário para cadastro</h3>
+
+                                    <label for="senha_email">E-mail/Usuário:</label>
+                                    <input type="text" placeholder="E-mail/Usuário" id="senha_email">
+
+                                    <label for="senha_senha">Senha:</label>
+                                    <input type="text" placeholder="Senha" id="senha_senha">
+
+                                    <label for="senha_cliente">Cliente:</label>
+                                    <input type="text" placeholder="Cliente" id="senha_cliente">
+
+                                    <label fr="senha_plataforma">Plataforma</label>
+                                    <input type="text" placeholder="Plataforma" id="senha_plataforma">
+
+                                    <label fr="senha_info">Info. Adicional:</label>
+                                    <input type="text" placeholder="Informação adicional" id="senha_info">
+
+                                    <label for="senha_link">Link:</label>
+                                    <input type="text" placeholder="Link" id="senha_link">
+                                </div>
+
+                                <button type="submit" id="FrmSenhasBtnGravar" type="submit"
+                                    class="btn btn-success">Salvar</button>
+
+                                <div id="FrmSenhasBtnAlterar" class="IniOculta">
+                                    <button type="submit" class="btn btn-success">Confirmar Alteração</button>
+                                    <button type="button" type="button" class="btn btn-danger"
+                                        onclick="cancelaUpdate()">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <h3 class="text">Senhas cadastradas</h3>
+                    <p id="totalSenhas" class="text">Total de Senhas</p>
+
+                    <div class="cadSen" style="display: flex; justify-content: center;">
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-success" onclick="exibirPopUp()"
+                                style="margin-right:6px; margin-left:9px;">Adicionar Cadastro</button>
+
+
+                        </div>
+                    </div>
+
+                    <div id="listaSenhas">
+                        <div class="row">
+                            <br>
+                            <div class="col-12">
+                                <div class="table-wrapper table-responsive"
+                                    style="width: 102.150%; overflow-x: scroll;overflow-y: scroll;">
+                                    <table class="table table-striped fixed-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="pl-2 sticky-header">E-mail/Usuário</th>
+                                                <th scope="col" class="pl-2 sticky-header">Senha</th>
+                                                <th scope="col" class="pl-2 sticky-header">Cliente</th>
+                                                <th scope="col" class="pl-2 sticky-header">Plataforma</th>
+                                                <th scope="col" class="pl-2 sticky-header">Info. Adicional</th>
+                                                <th scope="col" class="pl-2 sticky-header">Link</th>
+                                                <th scope="col" class="pl-2 sticky-header">Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="ulListaSenhas">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+    <!--RECURSOS DO FIREBASE-->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+    <!--RECURSO DA AUTENTICAÇÃO-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+
+    <!--MEUS ARQUIVOS JAVASCRIPT-->
+    <script src="js/firebase.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/autentica.js"></script>
+    <script src="js/senhas.js"></script>
+
+
+</body>
+
+</html>
