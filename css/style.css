@@ -911,3 +911,13 @@ label {
   overflow: auto;
   /* Adiciona barras de rolagem se necessário */
 }
+.button-container {
+  display: flex;
+  flex-direction: column;
+  padding: -3px;
+}
+
+.custom-button {
+  width: 73.25px;
+  height: 38px;
+}

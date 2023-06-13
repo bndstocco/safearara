@@ -150,26 +150,34 @@ function geraListaSenha(dataSnapshot) {
 
       var tdAcoes = document.createElement('td');
 
+
+
+      // Cria a div para envolver os botões
+      var divBotoes = document.createElement('div');
+      divBotoes.classList.add('button-container');
+
       // Cria o botão para alterar
       var btnAlterar = document.createElement('button');
-      btnAlterar.classList.add('btn', 'btn-primary');
+      btnAlterar.classList.add('btn', 'btn-primary', 'custom-button'); // Adiciona a classe custom-button
       btnAlterar.appendChild(document.createTextNode('Alterar'));
       btnAlterar.setAttribute('onclick', 'alteraCadastro("' + item.id + '")');
       btnAlterar.addEventListener('click', function () {
         exibirPopUp();
       });
-      tdAcoes.appendChild(btnAlterar);
+      divBotoes.appendChild(btnAlterar);
 
       // Cria o botão para excluir
       var btnExcluir = document.createElement('button');
-      btnExcluir.classList.add('btn', 'btn-danger');
+      btnExcluir.classList.add('btn', 'btn-danger', 'custom-button'); // Adiciona a classe custom-button
       btnExcluir.appendChild(document.createTextNode('Excluir'));
       btnExcluir.setAttribute('onclick', 'excluiCadastro("' + item.id + '")');
-      tdAcoes.appendChild(btnExcluir);
+      divBotoes.appendChild(btnExcluir);
 
+      tdAcoes.appendChild(divBotoes);
       tr.appendChild(tdAcoes);
+      ulListaSenhas.appendChild(tr);
 
-      ulListaSenhas.appendChild(tr); // Adiciona o tr dentro do tbody da tabela
+
     }
   });
   totalSenhas.innerHTML = 'Total de registros: ' + count + (count > 1 ? ' cadastros' : ' cadastro') + '.';
