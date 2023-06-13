@@ -921,3 +921,13 @@ label {
   width: 73.25px;
   height: 38px;
 }
+@media (max-width: 480px) {
+  .btn {
+      width: 100% !important;
+  }
+}
+@media (max-width: 480px) {
+  .table-wrapper {
+      width: 102.2% !important;
+  }
+}
